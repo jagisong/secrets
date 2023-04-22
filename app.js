@@ -9,6 +9,7 @@ const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
+// const http = require('http');
 // const bcrypt = require('bcrypt');
 // const saltRounds = 10;
 // const md5 = require('md5');
@@ -226,8 +227,9 @@ app.post("/login", async (req, res) => {
     // }
 });
 
-app.listen(3000, function () {
-    console.log('listening on port 3000');
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+    console.log(`listening on port ${port}`);
 });
 
 
